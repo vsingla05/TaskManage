@@ -20,6 +20,12 @@ client.interceptors.request.use((config) => {
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
+  if (import.meta.env.DEV) {
+    const url = [config.baseURL || window.location.origin, config.url]
+      .join('')
+      .replace(/([^:]\/)\/+/g, '$1');
+    console.debug(`[API] ${(config.method || 'get').toUpperCase()} ${url}`);
+  }
   return config;
 });
 

@@ -4,7 +4,7 @@ import app from './app.js';
 import { connectDB } from './config/db.js';
 
 // Default 5001: macOS often reserves 5000 for AirPlay Receiver (EADDRINUSE).
-const PORT = Number(process.env.PORT) || 5001;
+const PORT = Number(process.env.PORT) || 5000;
 
 await connectDB();
 const server = http.createServer(app);

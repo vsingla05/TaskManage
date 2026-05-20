@@ -52,7 +52,7 @@ export default function Login() {
             Team Task Manager — organize work with your team.
           </p>
         </div>
-        <form onSubmit={onSubmit} className="space-y-4">
+        <form onSubmit={onSubmit} noValidate className="space-y-4">
           <div>
             <label className="mb-1 block text-sm font-medium text-slate-700 dark:text-slate-300">
               Email

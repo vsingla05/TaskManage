@@ -12,7 +12,8 @@ export function getApiErrorMessage(err, fallback = 'Request failed') {
     if (typeof first?.message === 'string') return first.message;
   }
   if (err.code === 'ERR_NETWORK' || err.message === 'Network Error') {
-    return 'API not reachable. Start backend: cd backend && npm run dev (port 5001).';
+    const api = import.meta.env.VITE_API_URL || '(Vite proxy → backend)';
+    return `Cannot reach API at ${api}. Check DevTools → Network (not the local backend terminal unless VITE_API_URL is http://localhost:5001).`;
   }
   const status = err.response?.status;
   if (status === 500) {
